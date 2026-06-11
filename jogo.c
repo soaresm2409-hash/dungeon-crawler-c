@@ -112,19 +112,6 @@ int main() {
             printf("\nSaindo do jogo... Obrigado por jogar!\n");
             break;
         }
-        
-        if (opcao == 3) {
-            system("cls");
-            printf("==================================================\n");
-            printf("                    CREDITOS                      \n");
-            printf("==================================================\n");
-            printf(" Desenvolvido por: Estudante de Engenharia/CC\n");
-            printf(" Cadeira: Algoritmos e Programacao I\n");
-            printf(" Ano: Primeiro Semestre\n");
-            printf("==================================================\n");
-            printf(" Pressione qualquer tecla para voltar...");
-            getch();
-        }
 
         if (opcao == 2) {
             system("cls");
