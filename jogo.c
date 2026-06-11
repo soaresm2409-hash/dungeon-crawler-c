@@ -102,7 +102,6 @@ int main() {
         printf("==================================================\n");
         printf(" 1. Iniciar Nova Jornada\n");
         printf(" 2. Manual de Instrucoes\n");
-        printf(" 3. Creditos do Desenvolvedor\n");
         printf(" 4. Sair do Jogo\n");
         printf("--------------------------------------------------\n");
         printf(" Escolha uma opcao: ");
