@@ -1,6 +1,6 @@
 # dungeon-crawler-c
 # Jogo Dungeon Crawler em C
-
+TIVE AUXILIO DE IA 
 Este é um jogo de aventura em modo texto (Dungeon Crawler) desenvolvido em Linguagem C para o trabalho da faculdade. O objetivo do jogador é explorar andares, coletar chaves, enfrentar monstros e derrotar o Boss Final para salvar a vila.
 
 ## Integrantes do Grupo
