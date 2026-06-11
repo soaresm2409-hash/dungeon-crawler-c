@@ -3,153 +3,130 @@
 #include <conio.h>
 #include <time.h>
 
-char andar1_original[10][10] = {
-    {'*','*','*','*','*','*','*','*','*','*'},
-    {'*',' ',' ',' ','k',' ','*',' ','@','*'},
-    {'*',' ',' ',' ',' ',' ','D',' ',' ','*'},
-    {'*',' ',' ',' ',' ',' ','*','*',' ','*'},
-    {'*','k',' ',' ',' ',' ',' ',' ',' ','*'},
-    {'*',' ',' ',' ',' ',' ',' ',' ',' ','*'},
-    {'*',' ',' ','k',' ',' ',' ',' ',' ','*'},
-    {'*',' ',' ',' ',' ',' ',' ',' ',' ','*'},
-    {'*',' ',' ',' ',' ','k',' ',' ','L','*'},
-    {'*','*','*','*','*','*','*','*','*','*'}
-};
-
-char andar2_original[15][15] = {
-    {'*','*','*','*','*','*','*','*','*','*','*','*','*','*','*'},
-    {'*',' ',' ',' ',' ',' ','*',' ',' ',' ','*',' ',' ','@','*'},
-    {'*',' ','#',' ','#',' ','*',' ',' ',' ','*',' ',' ',' ','*'},
-    {'*',' ',' ','#',' ',' ','*',' ',' ',' ','*',' ',' ',' ','*'},
-    {'*','*','*','*','*',' ','*',' ',' ',' ','*',' ',' ',' ','*'},
-    {'*',' ',' ',' ',' ',' ','*',' ',' ',' ','*',' ',' ','*','*'},
-    {'*',' ',' ',' ',' ',' ',' ',' ',' ',' ','*',' ',' ','*','*'},
-    {'*','#',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','*'},
-    {'*','O',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','*'},
-    {'*',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','#',' ',' ','*'},
-    {'*',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','*'},
-    {'*',' ','#',' ',' ',' ','#',' ',' ',' ',' ',' ',' ','@','*'},
-    {'*',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','*'},
-    {'*',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','D','L','*'},
-    {'*','*','*','*','*','*','*','*','*','*','*','*','*','*','*'}
-};
-
-char andar3_original[25][25] = {
-    {'*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*'},
-    {'*',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','*',' ',' ',' ',' ',' ',' ',' ','@','*'},
-    {'*',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','*',' ',' ',' ',' ',' ',' ',' ',' ','*'},
-    {'*',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','*',' ',' ',' ',' ',' ',' ',' ',' ','*'},
-    {'*',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','*',' ',' ',' ',' ',' ',' ',' ',' ','*'},
-    {'*',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','*',' ',' ',' ',' ',' ',' ',' ',' ','*'},
-    {'*',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','*',' ',' ',' ',' ',' ',' ',' ',' ','*'},
-    {'*',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','*',' ',' ',' ',' ',' ',' ',' ',' ','*'},
-    {'*',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','*','*','*','*',' Craven ',' ',' ',' ',' ',' ',' ','*'},
-    {'*',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','*',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','*'},
-    {'*',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','D',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','*'},
-    {'*',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','*'},
-    {'*',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','*',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','*'},
-    {'*',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','*',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','*'},
-    {'*',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','*','*','*','*','*','*','*','*','*','*','D','*','*'},
-    {'*',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','*'},
-    {'*',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','*'},
-    {'*',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','*'},
-    {'*',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','*'},
-    {'*',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','*'},
-    {'*',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','*'},
-    {'*',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','D',' ','*'},
-    {'*',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','*'},
-    {'*','@',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','@','*'},
-    {'*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*'}
-};
-
 int main() {
-    int opcao;
+    int arma = 0;
+    int xi = 1, yi = 1;
+    int jgdo = 1;
+    int rodada = 0;
+    int chave = 0;
+    int vidas = 3;
+    int tamanho = 10;
+    int botao = 0;
+    char jg = 'v';
+    int opcao = 0;
+
+    int mx = 8, my = 6, xv = 1; 
+    int myx = 4, myy = 12, yv = 1; 
+    int zx = 10, zy = 16, zv = 1, z_vidas = 5; 
+
+    char vila[10][10] = {
+        {'*','*','*','*','*','*','*','*','*','*'},
+        {'*',' ',' ',' ',' ','*',' ',' ',' ','*'},
+        {'*',' ','N',' ',' ','*',' ',' ',' ','*'},
+        {'*',' ',' ',' ',' ','*',' ',' ',' ','*'},
+        {'*',' ',' ',' ',' ','*',' ',' ',' ','*'},
+        {'*',' ',' ',' ',' ',' ',' ',' ',' ','*'},
+        {'*',' ',' ',' ',' ','*','*','*','*','*'},
+        {'*',' ',' ',' ',' ','*',' ',' ','L','*'},
+        {'*',' ',' ',' ',' ','*',' ',' ',' ','*'},
+        {'*','*','*','*','*','*','*','*','*','*'}
+    };
+
+    char andar1[10][10] = {
+        {'*','*','*','*','*','*','*','*','*','*'},
+        {'*',' ',' ',' ','k',' ','*',' ','@','*'},
+        {'*',' ',' ',' ',' ',' ','D',' ',' ','*'},
+        {'*',' ',' ',' ',' ',' ','*','*',' ','*'},
+        {'*','k',' ',' ',' ',' ',' ',' ',' ','*'},
+        {'*',' ',' ',' ',' ',' ',' ',' ',' ','*'},
+        {'*',' ',' ','k',' ',' ',' ',' ',' ','*'},
+        {'*',' ',' ',' ',' ',' ',' ',' ',' ','*'},
+        {'*',' ',' ',' ',' ','k',' ',' ','L','*'},
+        {'*','*','*','*','*','*','*','*','*','*'}
+    };
+
+    char andar2[15][15] = {
+        {'*','*','*','*','*','*','*','*','*','*','*','*','*','*','*'},
+        {'*',' ',' ',' ',' ',' ','*',' ',' ',' ','*',' ',' ','@','*'},
+        {'*',' ','#',' ','#',' ','*',' ',' ',' ','*',' ',' ',' ','*'},
+        {'*',' ',' ','#',' ',' ','*',' ',' ',' ','*',' ',' ',' ','*'},
+        {'*','*','*','*','*',' ','*',' ',' ',' ','*',' ',' ',' ','*'},
+        {'*',' ',' ',' ',' ',' ','*',' ',' ',' ','*',' ',' ','*','*'},
+        {'*',' ',' ',' ',' ',' ',' ',' ',' ',' ','*',' ',' ','*','*'},
+        {'*','#',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','*'},
+        {'*','O',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','*'},
+        {'*',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','#',' ',' ','*'},
+        {'*',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','*'},
+        {'*',' ','#',' ',' ',' ','#',' ',' ',' ',' ',' ',' ','@','*'},
+        {'*',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','*','*','*','*'},
+        {'*',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','*','L','D',' '}, 
+        {'*','*','*','*','*','*','*','*','*','*','*','*','*','*','*'}
+    };
+
+    char andar3[25][25] = {
+        {'*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*'},
+        {'*',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','*',' ',' ',' ',' ',' ',' ',' ','@','*'},
+        {'*',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','*',' ',' ',' ',' ',' ',' ',' ',' ','*'},
+        {'*',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','*',' ',' ',' ',' ',' ',' ',' ',' ','*'},
+        {'*',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','*',' ',' ',' ',' ',' ',' ',' ',' ','*'},
+        {'*',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','*',' ',' ',' ',' ',' ',' ',' ',' ','*'},
+        {'*',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','*',' ',' ',' ',' ',' ',' ',' ',' ','*'},
+        {'*',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','*',' ',' ',' ',' ',' ',' ',' ',' ','*'},
+        {'*',' Bradford ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','*','*','*','*',' ',' ',' ',' ',' ',' ',' ',' ','*'},
+        {'*',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','*',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','*'},
+        {'*',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','D',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','*'},
+        {'*',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','*'},
+        {'*',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','*',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','*'},
+        {'*',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','*',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','*'},
+        {'*',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','*','*','*','*','*','*','*','*','*','*','D','*','*'},
+        {'*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','D','*','*'},
+        {'*',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','*'},
+        {'*',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','*'},
+        {'*',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','*'},
+        {'*',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','*'},
+        {'*',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','*'},
+        {'*',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','D',' ','*'},
+        {'*',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','*'},
+        {'*','@',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','@','*'},
+        {'*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*','*'}
+    };
+
     srand(time(NULL));
 
     while (1) {
         system("cls");
-        printf("--- MENU PRINCIPAL ---\n");
+        printf("==========================================\n");
+        printf("             JOGO DA MASMORRA             \n");
+        printf("==========================================\n");
         printf(" 1. Jogar\n");
-        printf(" 2. Tutorial\n");
+        printf(" 2. Como Jogar\n");
         printf(" 3. Sair\n");
-        printf(" Escolha: ");
-        if (scanf("%d", &opcao) != 1) {
-            while (getchar() != '\n'); 
-            continue;
-        }
+        printf("------------------------------------------\n");
+        printf(" Escolha uma opcao: ");
+        scanf("%d", &opcao);
 
         if (opcao == 3) {
+            printf("\nTchau!\n");
             break;
         }
-        else if (opcao == 2) {
+        
+        if (opcao == 2) {
             system("cls");
-            printf("--- TUTORIAL ---\n");
-            printf(" Use W, A, S, D para andar.\n");
-            printf(" Pressione I para interagir com itens na sua frente.\n");
-            printf(" Pressione O para atacar na sua frente.\n\n");
-            printf(" Simbolos:\n");
-            printf(" * : Parede\n");
-            printf(" # : Espinho\n");
-            printf(" k : Caixa destruivel\n");
-            printf(" O : Botao\n");
-            printf(" D : Porta fechada\n");
-            printf(" @ : Chave\n");
-            printf(" L : Escada\n");
-            printf(" X, Y : Monstros\n");
-            printf(" Z : Boss Final\n\n");
+            printf("=== COMO JOGAR ===\n");
+            printf(" Mover: W, A, S, D | Interagir: I | Atacar: O\n");
             printf(" Pressione qualquer tecla para voltar...");
             getch();
         }
-        else if (opcao == 1) {
-            int arma = 0;
-            int xi = 1, yi = 1;
-            char jg = 'v';
-            int jogando = 1;
-            int rodada = 0; 
-            int chave = 0;
-            int vidas = 3;
-            int tamanho = 10;
-            int botao_pressionado = 0;
 
-            char andar1[10][10], andar2[15][15], andar3[25][25];
-            int linha, coluna;
+        if (opcao == 1) {
+            arma = 0; xi = 1; yi = 1; jgdo = 1; rodada = 0; chave = 0; vidas = 3; botao = 0; jg = 'v';
+            mx = 8; my = 6; xv = 1; myx = 4; myy = 12; yv = 1; zx = 10; zy = 16; zv = 1; z_vidas = 5;
 
-            for (linha = 0; linha < 10; linha++) {
-                for (coluna = 0; coluna < 10; coluna++) {
-                    andar1[linha][coluna] = andar1_original[linha][coluna];
-                }
-            }
+            while (jgdo && vidas > 0) {
+                if (rodada == 0 || rodada == 1) tamanho = 10;
+                else if (rodada == 2) tamanho = 15;
+                else if (rodada == 3) tamanho = 25;
 
-            for (linha = 0; linha < 15; linha++) {
-                for (coluna = 0; coluna < 15; coluna++) {
-                    andar2[linha][coluna] = andar2_original[linha][coluna];
-                }
-            }
-
-            for (linha = 0; linha < 25; linha++) {
-                for (coluna = 0; coluna < 25; coluna++) {
-                    andar3[linha][coluna] = andar3_original[linha][coluna];
-                }
-            }
-
-            char vila[10][10] = {
-                {'*','*','*','*','*','*','*','*','*','*'},
-                {'*',' ',' ',' ',' ','*',' ',' ',' ','*'},
-                {'*',' ','N',' ',' ','*',' ',' ',' ','*'},
-                {'*',' ',' ',' ',' ','*',' ',' ',' ','*'},
-                {'*',' ',' ',' ',' ','*',' ',' ',' ','*'},
-                {'*',' ',' ',' ',' ',' ',' ',' ',' ','*'},
-                {'*',' ',' ',' ',' ','*','*','*','*','*'},
-                {'*',' ',' ',' ',' ',' ',' ',' ',' ','*'},
-                {'*',' ',' ',' ',' ',' ',' ',' ','L','*'},
-                {'*','*','*','*','*','*','*','*','*','*'}
-            };
-
-            int mx = 8, my = 6, xv = 1; 
-            int myx = 4, myy = 12, yv = 1; 
-            int zx = 12, zy = 12, zv = 1, z_vidas = 5; 
-
-            while (jogando) {
                 system("cls");
 
                 int i, j;
@@ -158,11 +135,8 @@ int main() {
                         if (i == xi && j == yi) {
                             printf("%c ", jg);
                         }
-                        else if (rodada == 1 && i == mx && j == my && xv == 1) {
+                        else if ((rodada == 1 || rodada == 2) && i == mx && j == my && xv == 1) {
                             printf("X ");
-                        }
-                        else if (rodada == 2 && i == mx && j == my && xv == 1) {
-                            printf("X "); 
                         }
                         else if (rodada == 3 && i == myx && j == myy && yv == 1) {
                             printf("Y ");
@@ -174,42 +148,42 @@ int main() {
                             if (rodada == 0) printf("%c ", vila[i][j]);
                             else if (rodada == 1) printf("%c ", andar1[i][j]);
                             else if (rodada == 2) printf("%c ", andar2[i][j]);
-                            else if (rodada == 3) printf("%c ", andar3[i][j]);
+                            else if (rodada == 3) {
+                                if (zv == 0 && yv == 0 && i == 23 && j == 23) printf("L ");
+                                else printf("%c ", andar3[i][j]);
+                            }
                         }
                     }
                     printf("\n");
                 }
 
-                printf("\nVidas: %d | Chaves: %d | Arma: ", vidas, chave);
+                printf("\n==================================================\n");
+                printf(" Vidas: %d | Chaves: %d | Arma: ", vidas, chave);
                 if (arma == 1) printf("Espada\n");
                 else if (arma == 2) printf("Arco\n");
                 else if (arma == 3) printf("Cajado\n");
                 else printf("Nenhuma\n");
-
-                printf("[W A S D] Mover | [I] Interagir | [O] Atacar\n");
+                printf(" Comandos: [W A S D] Andar | [I] Interagir | [O] Atacar\n");
+                printf("==================================================\n");
 
                 int tecla = getch();
-                int px = xi;
-                int py = yi;
 
-                if (tecla == 'w' || tecla == 'W') { px--; jg = '^'; }
-                else if (tecla == 's' || tecla == 'S') { px++; jg = 'v'; }
-                else if (tecla == 'a' || tecla == 'A') { py--; jg = '<'; }
-                else if (tecla == 'd' || tecla == 'D') { py++; jg = '>'; }
+                int prox_x = xi, prox_y = yi;
+                if (tecla == 'w' || tecla == 'W') { prox_x--; jg = '^'; }
+                else if (tecla == 's' || tecla == 'S') { prox_x++; jg = 'v'; }
+                else if (tecla == 'a' || tecla == 'A') { prox_y--; jg = '<'; }
+                else if (tecla == 'd' || tecla == 'D') { prox_y++; jg = '>'; }
 
-                char celula_futura = ' ';
-                if (rodada == 0) celula_futura = vila[px][py];
-                else if (rodada == 1) celula_futura = andar1[px][py];
-                else if (rodada == 2) celula_futura = andar2[px][py];
-                else if (rodada == 3) celula_futura = andar3[px][py];
-
-                if (celula_futura != '*') {
-                    if (celula_futura != 'k') {
-                        if (celula_futura != 'D') {
-                            xi = px; 
-                            yi = py;
-                        }
-                    }
+                char bloco_destino = '*';
+                if (prox_x >= 0 && prox_x < tamanho && prox_y >= 0 && prox_y < tamanho) {
+                    if (rodada == 0) bloco_destino = vila[prox_x][prox_y];
+                    else if (rodada == 1) bloco_destino = andar1[prox_x][prox_y];
+                    else if (rodada == 2) bloco_destino = andar2[prox_x][prox_y];
+                    else if (rodada == 3) bloco_destino = andar3[prox_x][prox_y];
+                }
+                if (bloco_destino != '*' && bloco_destino != 'k' && bloco_destino != 'D' && bloco_destino != 'N') {
+                    xi = prox_x;
+                    yi = prox_y;
                 }
 
                 if (tecla == 'i' || tecla == 'I') {
@@ -219,123 +193,88 @@ int main() {
                     else if (jg == '<') fy--;
                     else if (jg == '>') fy++;
 
-                    if (rodada == 0) {
-                        if (vila[fx][fy] == 'N') {
-                            system("cls");
-                            printf("Escolha sua Arma:\n1. Espada\n2. Arco\n3. Cajado\nEscolha: ");
-                            scanf("%d", &arma);
-                            printf("\nArma guardada!\n");
-                            getch();
-                        }
+                    char bloco_frente = '*';
+                    if (fx >= 0 && fx < tamanho && fy >= 0 && fy < tamanho) {
+                        if (rodada == 0) bloco_frente = vila[fx][fy];
+                        else if (rodada == 1) bloco_frente = andar1[fx][fy];
+                        else if (rodada == 2) bloco_frente = andar2[fx][fy];
+                        else if (rodada == 3) bloco_frente = andar3[fx][fy];
                     }
-                    else if (rodada == 1) {
-                        if (andar1[fx][fy] == '@') { chave++; andar1[fx][fy] = ' '; }
-                        else if (andar1[fx][fy] == 'D') {
-                            if (chave > 0) { chave--; andar1[fx][fy] = '='; }
-                        }
+
+                    if (bloco_frente == '@') {
+                        chave++;
+                        if (rodada == 1) andar1[fx][fy] = ' ';
+                        if (rodada == 2) andar2[fx][fy] = ' ';
+                        if (rodada == 3) andar3[fx][fy] = ' ';
+                        printf("\nPegou uma chave!\n");
+                        getch();
                     }
-                    else if (rodada == 2) {
-                        if (andar2[fx][fy] == '@') { chave++; andar2[fx][fy] = ' '; }
-                        else if (andar2[fx][fy] == 'D') {
-                            if (chave > 0) { chave--; andar2[fx][fy] = '='; }
+                    else if (bloco_frente == 'D') {
+                        if (chave > 0) {
+                            chave--;
+                            if (rodada == 1) andar1[fx][fy] = ' ';
+                            if (rodada == 2) andar2[fx][fy] = ' ';
+                            if (rodada == 3) andar3[fx][fy] = ' ';
+                            printf("\nPorta aberta!\n");
+                        } else {
+                            printf("\nSem chave!\n");
                         }
-                        else if (andar2[fx][fy] == 'O') {
-                            if (botao_pressionado == 0) {
-                                botao_pressionado = 1;
-                                andar2[4][5] = '='; 
-                                printf("\nUma passagem se abriu!\n");
-                                getch();
-                            }
-                        }
+                        getch();
                     }
-                    else if (rodada == 3) {
-                        if (andar3[fx][fy] == '@') { chave++; andar3[fx][fy] = ' '; }
-                        else if (andar3[fx][fy] == 'D') {
-                            if (chave > 0) { chave--; andar3[fx][fy] = '='; }
-                        }
+                    else if (rodada == 2 && bloco_frente == 'O' && botao == 0) {
+                        botao = 1;
+                        andar2[fx][fy] = ' ';
+                        andar2[4][5] = ' ';
+                        printf("\nBotao secreto ativado!\n");
+                        getch();
+                    }
+                    else if (rodada == 0 && bloco_frente == 'N') {
+                        system("cls");
+                        printf("=== FORJA ===\n1. Espada\n2. Arco\n3. Cajado\nEscolha: ");
+                        scanf("%d", &arma);
+                    }
+                    else if (rodada == 0 && vila[xi][yi] == 'L' && arma > 0) { rodada = 1; xi = 1; yi = 1; }
+                    else if (rodada == 1 && andar1[xi][yi] == 'L') { rodada = 2; xi = 1; yi = 1; }
+                    else if (rodada == 2 && andar2[xi][yi] == 'L') { rodada = 3; xi = 1; yi = 1; }
+                    else if (rodada == 3 && zv == 0 && yv == 0 && xi == 23 && yi == 23) {
+                        system("cls");
+                        printf("========================\n VOCE VENCEU O JOGO! \n========================\n");
+                        getch();
+                        jgdo = 0;
                     }
                 }
 
                 if (tecla == 'o' || tecla == 'O') {
                     if (arma == 0) {
-                        printf("\nPegue uma arma na vila primeiro!\n");
+                        printf("\nVoce esta desarmado!\n");
                         getch();
                     } else {
                         int tx, ty;
                         for (tx = 0; tx < tamanho; tx++) {
                             for (ty = 0; ty < tamanho; ty++) {
-                                int atingido = 0;
-
+                                int acertou = 0;
                                 if (arma == 1) { 
-                                    if (jg == '^') {
-                                        if (tx == xi-1 || tx == xi-2) {
-                                            if (ty >= yi-1 && ty <= yi+1) atingido = 1;
-                                        }
-                                    }
-                                    else if (jg == 'v') {
-                                        if (tx == xi+1 || tx == xi+2) {
-                                            if (ty >= yi-1 && ty <= yi+1) atingido = 1;
-                                        }
-                                    }
-                                    else if (jg == '<') {
-                                        if (ty == yi-1 || ty == yi-2) {
-                                            if (tx >= xi-1 && tx <= xi+1) atingido = 1;
-                                        }
-                                    }
-                                    else if (jg == '>') {
-                                        if (ty == yi+1 || ty == yi+2) {
-                                            if (tx >= xi-1 && tx <= xi+1) atingido = 1;
-                                        }
-                                    }
-                                }
-                                else if (arma == 2) { 
-                                    if (jg == '^') {
-                                        if (ty == yi) {
-                                            if (tx >= xi-4 && tx < xi) atingido = 1;
-                                        }
-                                    }
-                                    else if (jg == 'v') {
-                                        if (ty == yi) {
-                                            if (tx <= xi+4 && tx > xi) atingido = 1;
-                                        }
-                                    }
-                                    else if (jg == '<') {
-                                        if (tx == xi) {
-                                            if (ty >= yi-4 && ty < yi) atingido = 1;
-                                        }
-                                    }
-                                    else if (jg == '>') {
-                                        if (tx == xi) {
-                                            if (ty <= yi+4 && ty > yi) atingido = 1;
-                                        }
-                                    }
-                                }
-                                else if (arma == 3) { 
-                                    if (tx >= xi-1 && tx <= xi+1) {
-                                        if (ty >= yi-1 && ty <= yi+1) {
-                                            if (tx != xi || ty != yi) atingido = 1;
-                                        }
-                                    }
+                                    if (jg == '^' && tx == xi-1 && ty == yi) acertou = 1;
+                                    if (jg == 'v' && tx == xi+1 && ty == yi) acertou = 1;
+                                    if (jg == '<' && tx == xi && ty == yi-1) acertou = 1;
+                                    if (jg == '>' && tx == xi && ty == yi+1) acertou = 1;
+                                } else { 
+                                    if (jg == '^' && ty == yi && tx < xi && tx >= xi-3) acertou = 1;
+                                    if (jg == 'v' && ty == yi && tx > xi && tx <= xi+3) acertou = 1;
+                                    if (jg == '<' && tx == xi && ty < yi && ty >= yi-3) acertou = 1;
+                                    if (jg == '>' && tx == xi && ty > yi && ty <= yi+3) acertou = 1;
                                 }
 
-                                if (atingido == 1) {
-                                    if (rodada == 1) {
-                                        if (andar1[tx][ty] == 'k') andar1[tx][ty] = ' ';
-                                        if (tx == mx && ty == my) xv = 0;
-                                    }
-                                    else if (rodada == 2) {
-                                        if (andar2[tx][ty] == 'k') andar2[tx][ty] = ' ';
-                                        if (tx == mx && ty == my) xv = 0;
-                                    }
-                                    else if (rodada == 3) {
-                                        if (tx == myx && ty == myy) { yv = 0; }
-                                        if (tx == zx && ty == zy) {
-                                            if (zv == 1) {
-                                                z_vidas--;
-                                                printf("\nBoss Z atingido! Vidas: %d\n", z_vidas);
-                                                getch();
-                                                if (z_vidas <= 0) zv = 0;
-                                            }
+                                if (acertou) {
+                                    if (rodada == 1 && andar1[tx][ty] == 'k') andar1[tx][ty] = ' ';
+                                    if (rodada == 2 && andar2[tx][ty] == 'k') andar2[tx][ty] = ' ';
+                                    if (rodada == 3) {
+                                        if (tx == myx && ty == myy && yv == 1) { yv = 0; printf("\nMonstro Y morreu!\n"); getch(); }
+                                        if (tx == zx && ty == zy && zv == 1) {
+                                            z_vidas--;
+                                            printf("\nBoss Z danificado! HP: %d\n", z_vidas);
+                                            getch();
+                                            if (z_vidas <= 0) { zv = 0; printf("\nBoss Z destruido!\n"); getch(); }
                                         }
                                     }
                                 }
@@ -344,144 +283,49 @@ int main() {
                     }
                 }
 
-                int pisou_espinho = 0;
-                if (rodada == 2) {
-                    if (andar2[xi][yi] == '#') pisou_espinho = 1;
-                }
-                else if (rodada == 3) {
-                    if (andar3[xi][yi] == '#') pisou_espinho = 1;
-                }
-
-                if (pisou_espinho == 1) {
-                    vidas--;
-                    printf("\nVoce pisou em espinhos!\n"); 
+                if ((rodada == 2 && andar2[xi][yi] == '#') || (rodada == 3 && andar3[xi][yi] == '#')) {
+                    vidas--; xi = 1; yi = 1;
+                    printf("\nPisou nos espinhos! Voltou ao inicio.\n");
                     getch();
-                    xi = 1; 
-                    yi = 1;
-                    if (rodada == 2) {
-                        for (linha = 0; linha < 15; linha++) {
-                            for (coluna = 0; coluna < 15; coluna++) {
-                                andar2[linha][coluna] = andar2_original[linha][coluna];
-                            }
-                        }
-                        mx = 8; my = 6; xv = 1; botao_pressionado = 0;
-                    }
                 }
 
-                if (rodada == 1 || rodada == 2) {
-                    if (xv == 1) {
-                        int r = rand() % 4;
-                        int pmx = mx, pmy = my;
-                        if (r == 0) pmx--;
-                        else if (r == 1) pmx++;
-                        else if (r == 2) pmy--;
-                        else if (r == 3) pmy++;
-
-                        if (rodada == 1) {
-                            if (andar1[pmx][pmy] != '*') { mx = pmx; my = pmy; }
-                        }
-                        else if (rodada == 2) {
-                            if (andar2[pmx][pmy] != '*') { mx = pmx; my = pmy; }
-                        }
-
-                        if (mx == xi && my = yi) {
-                            vidas--; 
-                            printf("\nO Monstro X te pegou!\n"); 
-                            getch();
-                            xi = 1; 
-                            yi = 1;
-                            if (rodada == 2) {
-                                for (linha = 0; linha < 15; linha++) {
-                                    for (coluna = 0; coluna < 15; coluna++) {
-                                        andar2[linha][coluna] = andar2_original[linha][coluna];
-                                    }
-                                }
-                                mx = 8; my = 6; xv = 1; botao_pressionado = 0;
-                            }
-                        }
+                if ((rodada == 1 || rodada == 2) && xv == 1) {
+                    int r = rand() % 4;
+                    int pmx = mx, pmy = my;
+                    if (r == 0) pmx--; if (r == 1) pmx++; if (r == 2) pmy--; if (r == 3) pmy++;
+                    
+                    char bloco_m = '*';
+                    if (pmx >= 0 && pmx < tamanho && pmy >= 0 && pmy < tamanho) {
+                        if (rodada == 1) bloco_m = andar1[pmx][pmy];
+                        else if (rodada == 2) bloco_m = andar2[pmx][pmy];
                     }
+                    if (bloco_m != '*') { mx = pmx; my = pmy; }
+                    if (mx == xi && my == yi) { vidas--; xi = 1; yi = 1; printf("\nO Monstro te pegou!\n"); getch(); }
                 }
-
+                
                 if (rodada == 3) {
-                    if (yv == 1) {
-                        if (myx < xi) myx++; 
-                        else if (myx > xi) myx--;
-                        else if (myy < yi) myy++; 
-                        else if (myy > yi) myy--;
-
-                        if (myx == xi && myy == yi) {
-                            vidas--; 
-                            printf("\nO Monstro Y te pegou!\n"); 
-                            getch();
-                            xi = 1; 
-                            yi = 1;
-                        }
+                    if (yv == 1 && rand() % 2 == 0) {
+                        if (myx < xi) myx++; else if (myx > xi) myx--;
+                        if (myy < yi) myy++; else if (myy > yi) myy--;
                     }
-                }
-
-                if (rodada == 3) {
                     if (zv == 1) {
                         int pzx = zx, pzy = zy;
-                        if (zx < xi) pzx++; 
-                        else if (zx > xi) pzx--;
-                        if (zy < yi) pzy++; 
-                        else if (zy > yi) pzy--;
-                        
-                        if (andar3[pzx][pzy] == '*') {
-                            andar3[pzx][pzy] = ' '; 
-                        }
-                        zx = pzx; 
-                        zy = pzy;
-
-                        if (zx == xi && zy == yi) {
-                            vidas--; 
-                            printf("\nO BOSS Z TE ATROPELOU!\n"); 
-                            getch();
-                            xi = 1; 
-                            yi = 1;
-                        }
+                        if (rand() % 2 == 0) { if (zx < xi) pzx++; else if (zx > xi) pzx--; }
+                        else { if (zy < yi) pzy++; else if (zy > yi) pzy--; }
+                        if (pzx >= 0 && pzx < tamanho && pzy >= 0 && pzy < tamanho && andar3[pzx][pzy] != '*') { zx = pzx; zy = pzy; }
                     }
-                }
-
-                if (rodada == 0) {
-                    if (vila[xi][yi] == 'L') {
-                        if (arma == 0) { 
-                            printf("\nPegue uma arma antes de ir!\n"); 
-                            getch(); 
-                            xi = 1; 
-                            yi = 1; 
-                        } else { 
-                            rodada = 1; tamanho = 10; xi = 1; yi = 1; chave = 0; 
-                        }
-                    }
-                }
-                else if (rodada == 1) {
-                    if (andar1[xi][yi] == 'L') {
-                        rodada = 2; tamanho = 15; xi = 1; yi = 1; chave = 0; mx = 8; my = 6; xv = 1;
-                    }
-                }
-                else if (rodada == 2) {
-                    if (andar2[xi][yi] == 'L') {
-                        rodada = 3; tamanho = 25; xi = 1; yi = 1; chave = 0;
-                    }
-                }
-
-                if (rodada == 3) {
-                    if (zv == 0) {
-                        system("cls");
-                        printf("VITORIA!\n");
-                        printf("Voce derrotou o Boss Z e salvou a vila!\n");
+                    if ((myx == xi && myy == yi && yv == 1) || (zx == xi && zy == yi && zv == 1)) {
+                        vidas--; xi = 1; yi = 1;
+                        printf("\nUm monstro te atacou no Andar 3!\n");
                         getch();
-                        jogando = 0;
                     }
                 }
+            }
 
-                if (vidas <= 0) {
-                    system("cls");
-                    printf("GAME OVER\n");
-                    getch();
-                    jogando = 0;
-                }
+            if (vidas <= 0) {
+                system("cls");
+                printf("====================\n     GAME OVER      \n====================\n");
+                getch();
             }
         }
     }
