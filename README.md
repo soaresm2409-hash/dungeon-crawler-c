@@ -1,7 +1,5 @@
 # dungeon-crawler-c
 # Jogo Dungeon Crawler em C
-TIVE AUXILIO DE IA 
-
 Este é um jogo de aventura em modo texto (Dungeon Crawler) desenvolvido em Linguagem C para o trabalho da faculdade. O objetivo do jogador é explorar andares, coletar chaves, enfrentar monstros e derrotar o Boss Final para salvar a vila.
 
 ## Integrantes do Grupo
@@ -34,3 +32,4 @@ O jogo funciona através do console. Certifique-se de jogar com a tecla Caps Loc
 * **Sistema de Reset de Fase**: Conforme as regras, caso o jogador colida com um monstro ou pise em um espinho, ele perde 1 vida e a matriz do andar atual é totalmente restaurada ao seu estado original (todas as caixas quebradas e portas abertas reaparecem).
 * **Armas Diferenciadas**: Na Vila (Andar 0), o jogador deve falar com o NPC para escolher entre Espada (ataque curto em área), Arco (ataque em linha reta de longo alcance) ou Cajado (ataque em volta do jogador).
 * **Matrizes Dinâmicas**: Cada andar possui uma dimensão diferente tratada pelo código (Vila 10x10, Andar 1 10x10, Andar 2 15x15 e Andar 3 25x25).
+obs;TIVE AUXILIO DE IA 
