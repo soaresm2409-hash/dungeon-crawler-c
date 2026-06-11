@@ -98,7 +98,7 @@ int main() {
     while (1) {
         system("cls");
         printf("==================================================\n");
-        printf("                 JOGO DA MASMORRA                 \n");
+        printf("                 dungeon crawler                 \n");
         printf("==================================================\n");
         printf(" 1. Iniciar Nova Jornada\n");
         printf(" 2. Manual de Instrucoes\n");
